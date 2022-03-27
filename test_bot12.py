@@ -11,19 +11,9 @@ intents = discord.Intents.all()
 intents.members = True
 
 client = commands.Bot(command_prefix='?', intents=intents)
-buttons = ButtonsClient(client)
-
-"""
-with open('./black_list.json', 'r') as json_file:
-    black_user = json.load(json_file)
 
 
 
-
-def updateUserdata():
-    with open('./userdata.json', 'w') as json_file:
-        json.dump(userdata, json_file)
-"""
 
 @client.event
 async def on_ready():

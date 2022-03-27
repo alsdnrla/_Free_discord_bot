@@ -3,9 +3,8 @@ import discord
 from discord.ext import commands
 from discord.ext.commands import has_permissions, CheckFailure, CommandNotFound
 from discord.utils import get
-from discord_buttons_plugin import *
-import requests
-from bs4 import BeautifulSoup as bs
+import os
+
 
 
 intents = discord.Intents.all()
@@ -267,4 +266,7 @@ await buttons.send(
 버튼 함수
 """
 
-client.run("OTUwNzI0MjM3NjA0MzAyODY4.YidE8Q.CQpwxpsGJtwSFgNON4SxppRHK7U")
+access_token = os.environ["BOT_TOKEN"]
+
+
+client.run(access_token)

@@ -356,7 +356,6 @@ async def on_ready():
     print("로그인중")
     print(client.user.name)
     print("connect was sucessful")
-    await client.change_presence(status=discord.Status.online, activity=discord.Game("갬성 힙합을 연구"))
     
     if not discord.opus.is_loaded():
         discord.opus.load_opus('opus')

@@ -357,7 +357,6 @@ async def on_ready():
     print(client.user.name)
     print("connect was sucessful")
     await client.change_presence(status=discord.Status.online, activity=discord.Game("갬성 힙합을 연구"))
-    client.togetherControl = await DiscordTogether(access_token)
     
     if not discord.opus.is_loaded():
         discord.opus.load_opus('opus')

@@ -112,7 +112,10 @@ async def 청소(ctx, amount : int):
                 channel = ctx.channel.id
                 await ctx.channel.purge(limit=amount)
                 embed = discord.Embed(title = "메시지 삭제가 정상적으로 처리되었습니다.", description = f"관리자 - {ctx.author.mention}({ctx.author})님의 의하여 \n메시지 `{amount}`개가 삭제처리되었습니다.")
-                await ctx.send(embed=embed)
+                embed.set_footer(text="이 메시지는 10초뒤에 자동삭제처리됩니다.")
+                msg_d = await ctx.send(embed=embed)
+                await asyncio.sleep(10)
+                await msg_d.delete()
         else:
             await ctx.send(ctx.author.mention + "님은 관한 없습니다.")
     except:

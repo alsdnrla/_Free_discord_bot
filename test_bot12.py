@@ -38,6 +38,7 @@ async def on_ready():
     print("connect was sucessful")
     await client.change_presence(status=discord.Status.online, activity=discord.Game("정보수집"))
 
+#입장로그    
 @client.event
 async def on_member_join(member):
     channel = client.get_channel(954705090621616138)
@@ -47,6 +48,15 @@ async def on_member_join(member):
     embed.set_author(name= member,icon_url= member.avatar_url)
     msg = await channel.send(embed=embed)
     await msg.add_reaction("✅")
+    
+#퇴장로그
+@client.event
+async def on_member_remove(member):
+    channel = client.get_channel(959099374057713726)
+    
+    embed = discord.Embed(title = f"정보 - 퇴장", description = f"{member.mention}님이 퇴장하셨습니다.", color = 0x6E17E3)
+    embed.set_author(name= member,icon_url= member.avatar_url)
+    await channel.send(embed=embed)    
 
 
 """
@@ -106,8 +116,8 @@ async def on_reaction_add(reaction, member):
 async def 청소(ctx, amount : int):
     try:
         if ctx.message.author.guild_permissions.administrator:
-            if amount > 100:
-                await ctx.send(ctx.author.mention + "한번에 너무 많은 메시지를 삭제시킬수 없습니다. \n x최대 `100`개의 메시지 까지만 삭제시킬수 있습니다.")
+            if amount > 200:
+                await ctx.send(ctx.author.mention + "한번에 너무 많은 메시지를 삭제시킬수 없습니다. \n x최대 `200`개의 메시지 까지만 삭제시킬수 있습니다.")
             else:
                 channel = ctx.channel.id
                 await ctx.channel.purge(limit=amount)

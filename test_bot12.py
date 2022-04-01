@@ -5,22 +5,8 @@ from discord.ext.commands import has_permissions, CheckFailure, CommandNotFound
 from discord.utils import get
 import os
 from ast import literal_eval
-from youtube_dl import YoutubeDL
-from bs4 import BeautifulSoup
 from datetime import datetime
-import urllib.request
-import urllib.parse
-import requests
-import bs4
-from selenium import webdriver
-from selenium.webdriver.chrome.options import Options
-from discord.utils import get
-from discord import FFmpegPCMAudio
-import time
-import json
-import random
-import re
-from pytube import YouTube
+
 
 
 intents = discord.Intents.all()

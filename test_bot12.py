@@ -245,7 +245,7 @@ async def Ban(ctx, nick: discord.Member, *, content):
 
 @client.command(name="작성", manage_messages=True)
 async def crth(ctx, *, content):
-    commander = discord.utils.get(ctx.guild.roles, name="Member")
+    commander = discord.utils.get(ctx.guild.roles, name="고예준-알림")
     channel = ctx.channel.id
     channel_gall = client.get_channel(963039201115389982)
     await ctx.channel.purge(limit=1)

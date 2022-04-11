@@ -243,24 +243,7 @@ async def Ban(ctx, nick: discord.Member, *, content):
 
 
 
-@client.command(name="작성", manage_messages=True)
-async def crth(ctx, *, content):
-    commander = discord.utils.get(ctx.guild.roles, name="고예준-알림")
-    channel_gall = client.get_channel(963039201115389982)
-    message = await channel_gall.send(f"게시글 등록 - {content}")
-    thread = await message.create_thread(name=f'{content}')
-    embed = discord.Embed(title = f"{content}", description = f"""```diff
 
-{content}
-
-
-
- - 성희롱및 과도한 욕설 비방은 처벌대상이 될수있습니다.
-
-```""")
-    embed.set_footer(text="모든 개시글은 기록됩니다.")
-    await thread.send(embed=embed)
-    await channel_gall.send(commander.mention)
 
 
 
